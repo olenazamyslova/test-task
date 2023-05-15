@@ -8,7 +8,7 @@ let selectedCheckboxes = [];
 
 // Функція для отримання даних про університети
 function getUniversities(country) {
-  const apiUrl = `http://universities.hipolabs.com/search?country=${country}`;
+  const apiUrl = `https://universities.hipolabs.com/search?country=${country}`;
 
   fetch(apiUrl)
     .then((response) => response.json())
