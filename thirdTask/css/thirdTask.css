@@ -1,0 +1,55 @@
+ul,
+li,
+a {
+    text-decoration: none;
+    list-style: none;
+    color: black;
+}
+header{
+    width: 90%;
+    text-align: center;
+}
+h1, label, button{
+    color: darkgreen;
+    font-weight: bold;
+}
+.back-home{
+color: darkgreen;
+}
+#country-input{
+    width: 300px;
+    padding: 5px 10px;
+    background-color: beige;
+}
+input::placeholder{
+    color: darkgreen;
+    opacity: 0.5;
+}
+button{
+    background-color: beige;
+    width: 100px;
+    padding: 5px 0;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+td:nth-child(2){
+    text-align: left;
+}
+th {
+    background-color: beige;
+    color: darkgreen;
+    text-align: center;
+}
+
+.checkbox-count {
+    margin: 10px;
+}
