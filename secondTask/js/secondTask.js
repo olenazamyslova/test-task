@@ -1,5 +1,5 @@
 function countImages() {
-  const imageCount = document.querySelectorAll('.image-item').length;
+  const imageCount = document.querySelectorAll('.image-item:not(.deleted)').length;
   const date = new Date();
   const formattedDate = `${padZero(date.getDate())}.${padZero(
     date.getMonth() + 1
@@ -19,7 +19,10 @@ const modalImage = document.querySelector('.modal-image');
 const closeButton = document.querySelector('.close-button');
 const imageItems = document.querySelectorAll('.image-item');
 const deleteButtons = document.querySelectorAll('.delete-button');
-const restoreButton = document.querySelector('.restore-button');
+const restoreButton = document.createElement('button');
+restoreButton.textContent = 'Restore';
+restoreButton.classList.add('restore-button');
+document.body.appendChild(restoreButton);
 
 imageItems.forEach((imageItem, index) => {
   imageItem.addEventListener('click', () => {
@@ -30,8 +33,9 @@ imageItems.forEach((imageItem, index) => {
 
   deleteButtons[index].addEventListener('click', (event) => {
     event.stopPropagation();
-    imageItem.style.display = 'none';
+    imageItem.classList.add('deleted');
     saveDeletedImage(index);
+    countImages();
   });
 });
 
@@ -43,10 +47,11 @@ restoreButton.addEventListener('click', () => {
   const deletedImages = getDeletedImages();
   imageItems.forEach((imageItem, index) => {
     if (deletedImages.includes(index)) {
-      imageItem.style.display = 'flex';
+      imageItem.classList.remove('deleted');
     }
   });
   restoreButton.style.display = 'none';
+  countImages();
 });
 
 countImages();

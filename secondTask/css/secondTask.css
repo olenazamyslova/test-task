@@ -142,4 +142,6 @@ img {
         cursor: pointer;
         pointer-events: auto;
     }
-    
+    .deleted{
+        display: none;
+    }
